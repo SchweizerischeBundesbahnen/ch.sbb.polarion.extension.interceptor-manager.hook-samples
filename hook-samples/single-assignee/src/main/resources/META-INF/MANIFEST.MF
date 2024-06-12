@@ -1,0 +1,2 @@
+Name: Single assignee hook for Polarion ALM Interceptor plugin
+Main-Class: ch.sbb.polarion.extension.interceptor.hook_samples.single_assignee.SingleAssigneeHook
