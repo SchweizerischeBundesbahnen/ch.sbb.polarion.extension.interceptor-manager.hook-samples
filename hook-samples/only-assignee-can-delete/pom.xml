@@ -9,7 +9,7 @@
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>only-assignee-can-delete</artifactId>
+    <artifactId>ch.sbb.polarion.extension.interceptor.hook-samples.only-assignee-can-delete</artifactId>
     <packaging>jar</packaging>
 
     <properties>

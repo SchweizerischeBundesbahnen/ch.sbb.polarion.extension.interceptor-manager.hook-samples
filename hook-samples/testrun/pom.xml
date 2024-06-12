@@ -9,7 +9,7 @@
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>testrun</artifactId>
+    <artifactId>ch.sbb.polarion.extension.interceptor.hook-samples.testrun</artifactId>
     <packaging>jar</packaging>
 
     <properties>

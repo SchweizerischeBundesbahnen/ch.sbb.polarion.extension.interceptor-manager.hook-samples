@@ -9,7 +9,7 @@
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>title-length-check</artifactId>
+    <artifactId>ch.sbb.polarion.extension.interceptor.hook-samples.title-length-check</artifactId>
     <packaging>jar</packaging>
 
     <properties>

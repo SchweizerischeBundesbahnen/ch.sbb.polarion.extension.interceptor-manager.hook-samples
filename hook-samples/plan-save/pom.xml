@@ -9,7 +9,7 @@
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>plan-save</artifactId>
+    <artifactId>ch.sbb.polarion.extension.interceptor.hook-samples.plan-save</artifactId>
     <packaging>jar</packaging>
 
     <properties>
