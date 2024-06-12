@@ -1,3 +1,3 @@
 # Hook sample for Polarion Interceptor extension
 
-This hook writes to log module save time.
+This hook writes module save time to log.
