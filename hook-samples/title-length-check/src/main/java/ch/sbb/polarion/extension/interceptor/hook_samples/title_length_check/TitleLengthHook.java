@@ -3,10 +3,12 @@ package ch.sbb.polarion.extension.interceptor.hook_samples.title_length_check;
 import ch.sbb.polarion.extension.interceptor.model.ActionHook;
 import ch.sbb.polarion.extension.interceptor.model.HookExecutor;
 import ch.sbb.polarion.extension.interceptor.util.PropertiesUtils;
+import com.polarion.alm.tracker.model.IModule;
 import com.polarion.alm.tracker.model.IWorkItem;
 import com.polarion.core.util.logging.Logger;
 import com.polarion.platform.persistence.model.IPObject;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -31,6 +33,24 @@ public class TitleLengthHook extends ActionHook implements HookExecutor {
 
     @Override
     public String preAction(@NotNull IPObject object) {
+        int maxLength = getMaxLength();
+
+        @Nullable String title = null;
+        if (object instanceof IWorkItem workItem) {
+            title = workItem.getTitle();
+        } else if (object instanceof IModule module) {
+            title = module.getTitle();
+        }
+
+        return title != null && title.length() > maxLength ? createErrorMessage(maxLength) : null;
+    }
+
+    private @NotNull String createErrorMessage(int maxLength) {
+        return getSettingsValue(SETTINGS_ERROR_MESSAGE)
+                .replace(MAX_LENGTH_VARIABLE, String.valueOf(maxLength));
+    }
+
+    private int getMaxLength() {
         int maxLength = DEFAULT_MAX_LENGTH;
         String maxLengthStringValue = getSettingsValue(SETTINGS_MAX_LENGTH);
         try {
@@ -38,7 +58,7 @@ public class TitleLengthHook extends ActionHook implements HookExecutor {
         } catch (NumberFormatException e) {
             logger.error("Cannot parse max length value '%s'".formatted(maxLengthStringValue), e);
         }
-        return ((IWorkItem) object).getTitle().length() > maxLength ? getSettingsValue(SETTINGS_ERROR_MESSAGE).replace(MAX_LENGTH_VARIABLE, String.valueOf(maxLength)) : null;
+        return maxLength;
     }
 
     @Override
