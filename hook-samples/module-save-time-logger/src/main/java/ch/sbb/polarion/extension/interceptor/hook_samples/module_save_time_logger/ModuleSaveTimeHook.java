@@ -15,14 +15,12 @@ public class ModuleSaveTimeHook extends ActionHook implements HookExecutor {
     public static final String TIME_VARIABLE = "{%s}".formatted(SETTINGS_TIME);
     public static final String DEFAULT_LOG_MESSAGE = "Module saved in " + TIME_VARIABLE + "ms";
 
-    public static final String VERSION = "2.0.0";
-    public static final String DESCRIPTION = "<br>Hook version: <b>" + VERSION + "</b><br><br>" +
-            "Logs module save time.<br>";
+    public static final String DESCRIPTION = "Logs module save time.";
 
     public static final Logger logger = Logger.getLogger(ModuleSaveTimeHook.class);
 
     public ModuleSaveTimeHook() {
-        super(ItemType.MODULE, ActionType.SAVE, VERSION, DESCRIPTION);
+        super(ItemType.MODULE, ActionType.SAVE, DESCRIPTION);
     }
 
     @Override

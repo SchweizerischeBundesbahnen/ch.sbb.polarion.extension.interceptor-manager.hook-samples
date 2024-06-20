@@ -21,14 +21,12 @@ public class TitleLengthHook extends ActionHook implements HookExecutor {
     private static final String DEFAULT_ERROR_MESSAGE = "Title length is over the limit (" + MAX_LENGTH_VARIABLE + " symbols). Please correct it before saving";
     private static final int DEFAULT_MAX_LENGTH = 256;
 
-    private static final String VERSION = "2.0.1";
-    public static final String DESCRIPTION = "<br>Hook version: <b>" + VERSION + "</b><br><br>" +
-            "Validates title length.";
+    public static final String DESCRIPTION = "Validates title length.";
 
     private static final Logger logger = Logger.getLogger(TitleLengthHook.class);
 
     public TitleLengthHook() {
-        super(List.of(ItemType.WORKITEM, ItemType.MODULE), ActionType.SAVE, VERSION, DESCRIPTION);
+        super(List.of(ItemType.WORKITEM, ItemType.MODULE), ActionType.SAVE, DESCRIPTION);
     }
 
     @Override

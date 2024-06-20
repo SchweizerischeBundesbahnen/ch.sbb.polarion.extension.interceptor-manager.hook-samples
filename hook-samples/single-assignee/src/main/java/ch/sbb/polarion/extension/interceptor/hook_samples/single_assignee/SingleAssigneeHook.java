@@ -22,14 +22,12 @@ public class SingleAssigneeHook extends ActionHook implements HookExecutor {
     private static final String SETTINGS_ERROR_MESSAGE_DESCRIPTION = "Message which will be displayed in the negative case.";
     private static final String DEFAULT_ERROR_MESSAGE = "Only single assignee can be added to Work Item according project settings!";
 
-    private static final String VERSION = "2.0.0";
-    public static final String DESCRIPTION = "<br>Hook version: <b>" + VERSION + "</b><br><br>" +
-            "Save hook for control that user can add only single assignee to WorkItem.";
+    public static final String DESCRIPTION = "Save hook for control that user can add only single assignee to WorkItem.";
 
     private static final Logger logger = Logger.getLogger(SingleAssigneeHook.class);
 
     public SingleAssigneeHook() {
-        super(ItemType.WORKITEM, ActionType.SAVE, VERSION, DESCRIPTION);
+        super(ItemType.WORKITEM, ActionType.SAVE, DESCRIPTION);
     }
 
     @Override

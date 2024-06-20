@@ -29,15 +29,13 @@ public class TestRunHook extends ActionHook implements HookExecutor {
     private static final String STEP_NUMBER_VARIABLE = "{stepNumber}";
     private static final String DEFAULT_ERROR_MESSAGE = "Cannot save execution results for TC " + TEST_CASE_ID_VARIABLE + " as Passed because it does not match to result in step N" + STEP_NUMBER_VARIABLE;
 
-    private static final String VERSION = "2.0.0";
-    public static final String DESCRIPTION = "<br>Hook version: <b>" + VERSION + "</b><br><br>" +
-            "Does not allow mark test case as passed if any of step not passed.";
+    public static final String DESCRIPTION = "Does not allow mark test case as passed if any of step not passed.";
 
     private static final ITrackerService trackerService = PlatformContext.getPlatform().lookupService(ITrackerService.class);
     private static final Logger logger = Logger.getLogger(TestRunHook.class);
 
     public TestRunHook() {
-        super(ItemType.TESTRUN, ActionType.SAVE, VERSION, DESCRIPTION);
+        super(ItemType.TESTRUN, ActionType.SAVE, DESCRIPTION);
     }
 
     @Override
