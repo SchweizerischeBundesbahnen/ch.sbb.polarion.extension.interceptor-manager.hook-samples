@@ -23,16 +23,14 @@ public class OnlyAssigneeCanDeleteHook extends ActionHook implements HookExecuto
     private static final boolean DEFAULT_DELETE_UNASSIGNED = true;
     private static final String DEFAULT_ERROR_MESSAGE = "Only assignee user can delete WorkItem!";
 
-    private static final String VERSION = "2.0.0";
-    public static final String DESCRIPTION = "<br>Hook version: <b>" + VERSION + "</b><br><br>" +
-            "Control that only assignee user can delete WorkItem." +
+    public static final String DESCRIPTION = "Control that only assignee user can delete WorkItem." +
             " If WorkItem is unassigned then it can be removed or not dependent on value property " + SETTINGS_DELETE_UNASSIGNED + ".";
 
     private static final ITrackerService trackerService = PlatformContext.getPlatform().lookupService(ITrackerService.class);
     private static final Logger logger = Logger.getLogger(OnlyAssigneeCanDeleteHook.class);
 
     public OnlyAssigneeCanDeleteHook() {
-        super(ItemType.WORKITEM, ActionType.DELETE, VERSION, DESCRIPTION);
+        super(ItemType.WORKITEM, ActionType.DELETE, DESCRIPTION);
     }
 
     @Override

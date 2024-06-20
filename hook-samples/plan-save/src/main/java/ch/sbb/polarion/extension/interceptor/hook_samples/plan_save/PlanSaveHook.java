@@ -17,14 +17,12 @@ public class PlanSaveHook extends ActionHook implements HookExecutor {
     private static final String SETTINGS_PROJECTS = "projects";
     private static final String SETTINGS_TEMPLATES = "templates";
 
-    private static final String VERSION = "2.0.0";
-    public static final String DESCRIPTION = "<br>Hook version: <b>" + VERSION + "</b><br><br>" +
-            "Hook intercepting Plan save operation for adding WorkItems to parent Plan (propagating).";
+    public static final String DESCRIPTION = "Hook intercepting Plan save operation for adding WorkItems to parent Plan (propagating).";
 
     private static final Logger logger = Logger.getLogger(PlanSaveHook.class);
 
     public PlanSaveHook() {
-        super(ItemType.PLAN, ActionType.SAVE, VERSION, DESCRIPTION);
+        super(ItemType.PLAN, ActionType.SAVE, DESCRIPTION);
     }
 
     @Override
