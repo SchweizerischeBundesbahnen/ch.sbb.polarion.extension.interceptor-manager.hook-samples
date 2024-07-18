@@ -1,6 +1,6 @@
 # Hook samples for Polarion Interceptor extension
 
-This project contains samples of hooks for Polarion Interceptor extension.
+This project contains samples of hooks for Polarion [Interceptor extension](https://github.com/SchweizerischeBundesbahnen/ch.sbb.polarion.extension.interceptor).
 
 The following hooks are available:
 - [Module Save Time Logger](hook-samples/module-save-time-logger/README.md)
