@@ -1,0 +1,2 @@
+Name: Document comments hook for Polarion ALM Interceptor plugin
+Main-Class: ch.sbb.polarion.extension.interceptor.hook_samples.delete_non_resolved_module_comments.DeleteNonResolvedModuleCommentsHook
