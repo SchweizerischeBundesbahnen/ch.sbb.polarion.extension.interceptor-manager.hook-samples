@@ -11,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
 @SuppressWarnings("unused")
 public class DeleteNonResolvedModuleCommentsHook extends ActionHook implements HookExecutor {
 
-    public static final String DESCRIPTION = "Allow removing only non-resolved comments from document.";
+    public static final String DESCRIPTION = "Allow the removal of only unresolved comments from the document.";
 
     public static final Logger logger = Logger.getLogger(DeleteNonResolvedModuleCommentsHook.class);
 

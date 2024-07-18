@@ -9,6 +9,7 @@
 
     <modules>
         <module>hook-samples/delete-non-resolved-module-comments</module>
+        <module>hook-samples/delete-work-records</module>
         <module>hook-samples/module-save-time-logger</module>
         <module>hook-samples/only-assignee-can-delete</module>
         <module>hook-samples/plan-save</module>
