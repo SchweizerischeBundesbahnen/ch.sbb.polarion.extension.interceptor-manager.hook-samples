@@ -42,7 +42,7 @@
         <maven-jar-plugin.Bundle-ManifestVersion>2</maven-jar-plugin.Bundle-ManifestVersion>
         <maven-jar-plugin.Bundle-Build-Timestamp>${maven.build.timestamp}</maven-jar-plugin.Bundle-Build-Timestamp>
         <!--suppress UnresolvedMavenProperty -->
-        <maven-jar-plugin.Bundle-Version>${project.artifact.selectedVersion.majorVersion}.${project.artifact.selectedVersion.minorVersion}.${project.artifact.selectedVersion.incrementalVersion}</maven-jar-plugin.Bundle-Version>
+        <maven-jar-plugin.Hook-Version>${project.artifact.selectedVersion.majorVersion}.${project.artifact.selectedVersion.minorVersion}.${project.artifact.selectedVersion.incrementalVersion}</maven-jar-plugin.Hook-Version>
         <maven-jar-plugin.Automatic-Module-Name/>
         <maven-jar-plugin.Extension-Context/>
     </properties>
@@ -137,7 +137,7 @@
                                 <Manifest-Version>${maven-jar-plugin.Manifest-Version}</Manifest-Version>
                                 <Bundle-ManifestVersion>${maven-jar-plugin.Bundle-ManifestVersion}</Bundle-ManifestVersion>
                                 <Automatic-Module-Name>${maven-jar-plugin.Automatic-Module-Name}</Automatic-Module-Name>
-                                <Bundle-Version>${maven-jar-plugin.Bundle-Version}</Bundle-Version>
+                                <Hook-Version>${maven-jar-plugin.Hook-Version}</Hook-Version>
                                 <Bundle-Build-Timestamp>${maven-jar-plugin.Bundle-Build-Timestamp}</Bundle-Build-Timestamp>
                                 <Extension-Context>${maven-jar-plugin.Extension-Context}</Extension-Context>
                             </manifestEntries>
