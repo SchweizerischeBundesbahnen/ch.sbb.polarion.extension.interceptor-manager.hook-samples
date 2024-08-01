@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ch.sbb.polarion.extensions</groupId>
-    <artifactId>ch.sbb.polarion.extension.interceptor.hook-samples</artifactId>
+    <artifactId>ch.sbb.polarion.extension.interceptor-manager.hook-samples</artifactId>
     <version>2.1.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
@@ -17,9 +17,9 @@
     </modules>
 
     <properties>
-        <ch.sbb.polarion.extension.interceptor.version>2.2.0</ch.sbb.polarion.extension.interceptor.version>
+        <ch.sbb.polarion.extension.interceptor-manager.version>3.0.0</ch.sbb.polarion.extension.interceptor-manager.version>
 
-        <interceptor.artifactId>ch.sbb.polarion.extension.interceptor</interceptor.artifactId>
+        <interceptor-manager.artifactId>ch.sbb.polarion.extension.interceptor-manager</interceptor-manager.artifactId>
         <hooks.folder.name>hooks</hooks.folder.name>
 
         <maven.compiler.source>17</maven.compiler.source>
@@ -59,7 +59,7 @@
                         <configuration>
                             <filesets>
                                 <fileset>
-                                    <directory>${env.POLARION_HOME}/polarion/extensions/${interceptor.artifactId}/eclipse/plugins/${hooks.folder.name}</directory>
+                                    <directory>${env.POLARION_HOME}/polarion/extensions/${interceptor-manager.artifactId}/eclipse/plugins/${hooks.folder.name}</directory>
                                     <includes>
                                         <include>*${maven-jar-plugin.Extension-Context}*.jar</include>
                                     </includes>
@@ -89,7 +89,7 @@
                                             <type>${project.packaging}</type>
                                         </artifactItem>
                                     </artifactItems>
-                                    <outputDirectory>${env.POLARION_HOME}/polarion/extensions/${interceptor.artifactId}/eclipse/plugins/${hooks.folder.name}</outputDirectory>
+                                    <outputDirectory>${env.POLARION_HOME}/polarion/extensions/${interceptor-manager.artifactId}/eclipse/plugins/${hooks.folder.name}</outputDirectory>
                                 </configuration>
                             </execution>
                         </executions>
@@ -102,8 +102,8 @@
     <dependencies>
         <dependency>
             <groupId>ch.sbb.polarion.extensions</groupId>
-            <artifactId>ch.sbb.polarion.extension.interceptor</artifactId>
-            <version>${ch.sbb.polarion.extension.interceptor.version}</version>
+            <artifactId>${interceptor-manager.artifactId}</artifactId>
+            <version>${ch.sbb.polarion.extension.interceptor-manager.version}</version>
             <scope>provided</scope>
         </dependency>
 

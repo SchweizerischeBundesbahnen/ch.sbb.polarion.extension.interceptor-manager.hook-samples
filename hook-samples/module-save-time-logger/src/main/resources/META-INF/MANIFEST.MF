@@ -1,2 +1,2 @@
 Name: Title length hook for Polarion ALM Interceptor plugin
-Main-Class: ch.sbb.polarion.extension.interceptor.hook_samples.module_save_time_logger.ModuleSaveTimeHook
+Main-Class: ch.sbb.polarion.extension.interceptor_manager.hook_samples.module_save_time_logger.ModuleSaveTimeHook

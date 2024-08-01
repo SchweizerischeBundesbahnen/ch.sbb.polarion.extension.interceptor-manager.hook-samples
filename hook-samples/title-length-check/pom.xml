@@ -4,16 +4,16 @@
 
     <parent>
         <groupId>ch.sbb.polarion.extensions</groupId>
-        <artifactId>ch.sbb.polarion.extension.interceptor.hook-samples</artifactId>
+        <artifactId>ch.sbb.polarion.extension.interceptor-manager.hook-samples</artifactId>
         <version>2.1.1-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>ch.sbb.polarion.extension.interceptor.hook-samples.title-length-check</artifactId>
+    <artifactId>ch.sbb.polarion.extension.interceptor-manager.hook-samples.title-length-check</artifactId>
     <packaging>jar</packaging>
 
     <properties>
-        <maven-jar-plugin.Automatic-Module-Name>ch.sbb.polarion.extension.interceptor.hook_samples.title_length_check</maven-jar-plugin.Automatic-Module-Name>
+        <maven-jar-plugin.Automatic-Module-Name>ch.sbb.polarion.extension.interceptor_manager.hook_samples.title_length_check</maven-jar-plugin.Automatic-Module-Name>
         <maven-jar-plugin.Extension-Context>title-length-check</maven-jar-plugin.Extension-Context>
     </properties>
 

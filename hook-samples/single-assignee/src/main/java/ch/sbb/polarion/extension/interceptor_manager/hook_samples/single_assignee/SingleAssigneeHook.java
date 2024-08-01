@@ -1,8 +1,8 @@
-package ch.sbb.polarion.extension.interceptor.hook_samples.single_assignee;
+package ch.sbb.polarion.extension.interceptor_manager.hook_samples.single_assignee;
 
-import ch.sbb.polarion.extension.interceptor.model.ActionHook;
-import ch.sbb.polarion.extension.interceptor.model.HookExecutor;
-import ch.sbb.polarion.extension.interceptor.util.PropertiesUtils;
+import ch.sbb.polarion.extension.interceptor_manager.model.ActionHook;
+import ch.sbb.polarion.extension.interceptor_manager.model.HookExecutor;
+import ch.sbb.polarion.extension.interceptor_manager.util.PropertiesUtils;
 import com.polarion.alm.tracker.model.IWorkItem;
 import com.polarion.core.util.logging.Logger;
 import com.polarion.platform.persistence.model.IPObject;
