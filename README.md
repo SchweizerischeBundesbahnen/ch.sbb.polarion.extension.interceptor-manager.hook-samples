@@ -3,6 +3,8 @@
 This project contains samples of hooks for Polarion [Interceptor Manager extension](https://github.com/SchweizerischeBundesbahnen/ch.sbb.polarion.extension.interceptor-manager).
 
 The following hooks are available:
+- [Delete Non-resolved Module Comments](hook-samples/delete-non-resolved-module-comments/README.md)
+- [Delete Work Records](hook-samples/delete-work-records/README.md)
 - [Module Save Time Logger](hook-samples/module-save-time-logger/README.md)
 - [Only Assignee Can Delete](hook-samples/only-assignee-can-delete/README.md)
 - [Plan Save](hook-samples/plan-save/README.md)

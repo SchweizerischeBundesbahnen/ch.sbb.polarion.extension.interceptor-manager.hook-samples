@@ -1,0 +1,2 @@
+Name: Work records hook for Polarion ALM Interceptor plugin
+Main-Class: ch.sbb.polarion.extension.interceptor.hook_samples.delete_work_records.DeleteWorkRecordsHook
