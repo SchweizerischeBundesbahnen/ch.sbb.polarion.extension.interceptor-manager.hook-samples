@@ -4,16 +4,16 @@
 
     <parent>
         <groupId>ch.sbb.polarion.extensions</groupId>
-        <artifactId>ch.sbb.polarion.extension.interceptor.hook-samples</artifactId>
+        <artifactId>ch.sbb.polarion.extension.interceptor-manager.hook-samples</artifactId>
         <version>2.1.1-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>ch.sbb.polarion.extension.interceptor.hook-samples.only-assignee-can-delete</artifactId>
+    <artifactId>ch.sbb.polarion.extension.interceptor-manager.hook-samples.only-assignee-can-delete</artifactId>
     <packaging>jar</packaging>
 
     <properties>
-        <maven-jar-plugin.Automatic-Module-Name>ch.sbb.polarion.extension.interceptor.hook_samples.only_assignee_can_delete</maven-jar-plugin.Automatic-Module-Name>
+        <maven-jar-plugin.Automatic-Module-Name>ch.sbb.polarion.extension.interceptor_manager.hook_samples.only_assignee_can_delete</maven-jar-plugin.Automatic-Module-Name>
         <maven-jar-plugin.Extension-Context>only-assignee-can-delete</maven-jar-plugin.Extension-Context>
     </properties>
 

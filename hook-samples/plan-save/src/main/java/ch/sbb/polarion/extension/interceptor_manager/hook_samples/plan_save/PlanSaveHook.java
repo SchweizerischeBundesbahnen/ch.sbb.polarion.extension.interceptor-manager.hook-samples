@@ -1,8 +1,8 @@
-package ch.sbb.polarion.extension.interceptor.hook_samples.plan_save;
+package ch.sbb.polarion.extension.interceptor_manager.hook_samples.plan_save;
 
-import ch.sbb.polarion.extension.interceptor.model.ActionHook;
-import ch.sbb.polarion.extension.interceptor.model.HookExecutor;
-import ch.sbb.polarion.extension.interceptor.util.PropertiesUtils;
+import ch.sbb.polarion.extension.interceptor_manager.model.ActionHook;
+import ch.sbb.polarion.extension.interceptor_manager.model.HookExecutor;
+import ch.sbb.polarion.extension.interceptor_manager.util.PropertiesUtils;
 import com.polarion.alm.tracker.model.IPlan;
 import com.polarion.alm.tracker.model.IWorkItem;
 import com.polarion.core.util.logging.Logger;

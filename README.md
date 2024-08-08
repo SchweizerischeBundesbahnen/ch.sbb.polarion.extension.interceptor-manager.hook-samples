@@ -1,6 +1,6 @@
-# Hook samples for Polarion Interceptor extension
+# Hook samples for Polarion Interceptor Manager extension
 
-This project contains samples of hooks for Polarion Interceptor extension.
+This project contains samples of hooks for Polarion [Interceptor Manager extension](https://github.com/SchweizerischeBundesbahnen/ch.sbb.polarion.extension.interceptor-manager).
 
 The following hooks are available:
 - [Delete Non-resolved Module Comments](hook-samples/delete-non-resolved-module-comments/README.md)
@@ -21,7 +21,7 @@ mvn clean package
 
 ## Installation to Polarion
 
-To install these hooks to Polarion `ch.sbb.polarion.extension.interceptor.hook-samples.<hookname>-<version>.jar` files should be copied to `<polarion_home>/polarion/extensions/ch.sbb.polarion.extension.interceptor/eclipse/plugins/hooks`.
+To install these hooks to Polarion `ch.sbb.polarion.extension.interceptor-manager.hook-samples.<hookname>-<version>.jar` files should be copied to `<polarion_home>/polarion/extensions/ch.sbb.polarion.extension.interceptor-manager/eclipse/plugins/hooks`.
 It can be done manually or automated using maven build:
 
 ```bash

@@ -1,2 +1,2 @@
 Name: WorkItem deletion hook for Polarion ALM Interceptor plugin
-Main-Class: ch.sbb.polarion.extension.interceptor.hook_samples.only_assignee_can_delete.OnlyAssigneeCanDeleteHook
+Main-Class: ch.sbb.polarion.extension.interceptor_manager.hook_samples.only_assignee_can_delete.OnlyAssigneeCanDeleteHook
