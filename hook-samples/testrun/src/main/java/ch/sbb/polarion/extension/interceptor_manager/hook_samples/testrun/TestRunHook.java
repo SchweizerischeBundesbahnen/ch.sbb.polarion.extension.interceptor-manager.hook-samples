@@ -1,8 +1,8 @@
-package ch.sbb.polarion.extension.interceptor.hook_samples.testrun;
+package ch.sbb.polarion.extension.interceptor_manager.hook_samples.testrun;
 
-import ch.sbb.polarion.extension.interceptor.model.ActionHook;
-import ch.sbb.polarion.extension.interceptor.model.HookExecutor;
-import ch.sbb.polarion.extension.interceptor.util.PropertiesUtils;
+import ch.sbb.polarion.extension.interceptor_manager.model.ActionHook;
+import ch.sbb.polarion.extension.interceptor_manager.model.HookExecutor;
+import ch.sbb.polarion.extension.interceptor_manager.util.PropertiesUtils;
 import com.polarion.alm.tracker.ITrackerService;
 import com.polarion.alm.tracker.model.ITestRecord;
 import com.polarion.alm.tracker.model.ITestRun;

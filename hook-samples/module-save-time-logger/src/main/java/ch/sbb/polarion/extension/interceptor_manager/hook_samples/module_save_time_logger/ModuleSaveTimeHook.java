@@ -1,8 +1,8 @@
-package ch.sbb.polarion.extension.interceptor.hook_samples.module_save_time_logger;
+package ch.sbb.polarion.extension.interceptor_manager.hook_samples.module_save_time_logger;
 
-import ch.sbb.polarion.extension.interceptor.model.ActionHook;
-import ch.sbb.polarion.extension.interceptor.model.HookExecutor;
-import ch.sbb.polarion.extension.interceptor.util.PropertiesUtils;
+import ch.sbb.polarion.extension.interceptor_manager.model.ActionHook;
+import ch.sbb.polarion.extension.interceptor_manager.model.HookExecutor;
+import ch.sbb.polarion.extension.interceptor_manager.util.PropertiesUtils;
 import com.polarion.core.util.logging.Logger;
 import com.polarion.platform.persistence.model.IPObject;
 import org.jetbrains.annotations.NotNull;

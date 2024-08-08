@@ -4,16 +4,16 @@
 
     <parent>
         <groupId>ch.sbb.polarion.extensions</groupId>
-        <artifactId>ch.sbb.polarion.extension.interceptor.hook-samples</artifactId>
+        <artifactId>ch.sbb.polarion.extension.interceptor-manager.hook-samples</artifactId>
         <version>2.1.1-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>ch.sbb.polarion.extension.interceptor.hook-samples.module-save-time-logger</artifactId>
+    <artifactId>ch.sbb.polarion.extension.interceptor-manager.hook-samples.module-save-time-logger</artifactId>
     <packaging>jar</packaging>
 
     <properties>
-        <maven-jar-plugin.Automatic-Module-Name>ch.sbb.polarion.extension.interceptor.hooks_samples.module_save_time_logger</maven-jar-plugin.Automatic-Module-Name>
+        <maven-jar-plugin.Automatic-Module-Name>ch.sbb.polarion.extension.interceptor_manager.hooks_samples.module_save_time_logger</maven-jar-plugin.Automatic-Module-Name>
         <maven-jar-plugin.Extension-Context>module-save-time-logger</maven-jar-plugin.Extension-Context>
     </properties>
 
