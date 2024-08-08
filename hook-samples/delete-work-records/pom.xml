@@ -4,12 +4,12 @@
 
     <parent>
         <groupId>ch.sbb.polarion.extensions</groupId>
-        <artifactId>ch.sbb.polarion.extension.interceptor.hook-samples</artifactId>
+        <artifactId>ch.sbb.polarion.extension.interceptor-manager.hook-samples</artifactId>
         <version>2.1.1-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>ch.sbb.polarion.extension.interceptor.hook-samples.delete-work-records</artifactId>
+    <artifactId>ch.sbb.polarion.extension.interceptor-manager.hook-samples.delete-work-records</artifactId>
     <packaging>jar</packaging>
 
     <properties>
