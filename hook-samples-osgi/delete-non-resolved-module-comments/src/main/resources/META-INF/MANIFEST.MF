@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: ch.sbb.polarion.extension.osgi.hook.example
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: ch.sbb.polarion.extension.osgi.hook.example;singleton:=true
+Bundle-Vendor: SBB AG
+Bundle-Version: 1.0.0
+Bundle-Name: OSGi Hook example
+Bundle-Activator: ch.sbb.polarion.extension.interceptor.hook_samples.osgi.HookBundleActivator
+Bundle-ActivationPolicy: lazy
+Require-Bundle: com.polarion.alm.tracker,
+ com.polarion.alm.ui,
+ com.polarion.portal.tomcat,
+ ch.sbb.polarion.extension.interceptor-manager
+Import-Package: org.osgi.framework
+
