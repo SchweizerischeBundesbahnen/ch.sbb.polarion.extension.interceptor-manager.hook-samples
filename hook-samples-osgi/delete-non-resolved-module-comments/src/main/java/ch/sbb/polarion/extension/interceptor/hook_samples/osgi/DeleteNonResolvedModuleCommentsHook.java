@@ -10,10 +10,10 @@ import org.jetbrains.annotations.NotNull;
 
 @SuppressWarnings("unused")
 public class DeleteNonResolvedModuleCommentsHook extends ActionHook implements HookExecutor {
+    private static final Logger logger = Logger.getLogger(DeleteNonResolvedModuleCommentsHook.class);
 
-    public static final String DESCRIPTION = "Allow the removal of only unresolved comments from the document. Loaded using OSGi services";
-
-    public static final Logger logger = Logger.getLogger(DeleteNonResolvedModuleCommentsHook.class);
+    private static final String DESCRIPTION = "Allow the removal of only unresolved comments from the document. Loaded using OSGi services";
+    private static final String RESOLVED_CANNOT_BE_DELETED = "'Resolved' comments can not be deleted.";
 
     public DeleteNonResolvedModuleCommentsHook() {
         super(ItemType.MODULE_COMMENT, ActionType.DELETE, DESCRIPTION);
@@ -21,22 +21,20 @@ public class DeleteNonResolvedModuleCommentsHook extends ActionHook implements H
 
     @Override
     public String preAction(@NotNull IPObject object) {
-        IModuleComment moduleComment = (IModuleComment) object;
-
-        if (moduleComment.isResolvedComment()) {
-            return "'Resolved' comments can not be deleted.";
+        if (((IModuleComment) object).isResolvedComment()) {
+            return RESOLVED_CANNOT_BE_DELETED;
         } else {
             return null;
         }
     }
 
     @Override
-    public @NotNull HookExecutor getExecutor() {
-        return this; //there is no need to create a separate executor instance coz only 'pre' action used
+    public String getDefaultSettings() {
+        return PropertiesUtils.build();
     }
 
     @Override
-    public String getDefaultSettings() {
-        return PropertiesUtils.build();
+    public @NotNull HookExecutor getExecutor() {
+        return this;
     }
 }
