@@ -11,7 +11,7 @@ public class HookServlet extends HttpServlet {
         try {
             getServletContext().getRequestDispatcher("/hookExample.jsp").forward(req, resp);
         } catch (Exception e) {
-            throw new RuntimeException("Get request processing failure: " + e.getMessage(), e);
+            throw new IllegalStateException("Get request processing failure: " + e.getMessage(), e);
         }
     }
 }
