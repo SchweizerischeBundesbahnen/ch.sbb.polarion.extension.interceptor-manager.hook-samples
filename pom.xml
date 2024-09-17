@@ -4,7 +4,7 @@
 
     <groupId>ch.sbb.polarion.extensions</groupId>
     <artifactId>ch.sbb.polarion.extension.interceptor-manager.hook-samples</artifactId>
-    <version>3.0.2</version>
+    <version>3.0.2-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -16,6 +16,7 @@
         <module>hook-samples/single-assignee</module>
         <module>hook-samples/testrun</module>
         <module>hook-samples/title-length-check</module>
+        <module>hook-samples-osgi/delete-non-resolved-module-comments</module>
     </modules>
 
     <properties>
@@ -47,6 +48,7 @@
         <maven-jar-plugin.Hook-Version>${project.artifact.selectedVersion.majorVersion}.${project.artifact.selectedVersion.minorVersion}.${project.artifact.selectedVersion.incrementalVersion}</maven-jar-plugin.Hook-Version>
         <maven-jar-plugin.Automatic-Module-Name/>
         <maven-jar-plugin.Extension-Context/>
+        <target.hooks.directory>${env.POLARION_HOME}/polarion/extensions/${interceptor-manager.artifactId}/eclipse/plugins/${hooks.folder.name}</target.hooks.directory>
     </properties>
 
     <profiles>
@@ -61,7 +63,7 @@
                         <configuration>
                             <filesets>
                                 <fileset>
-                                    <directory>${env.POLARION_HOME}/polarion/extensions/${interceptor-manager.artifactId}/eclipse/plugins/${hooks.folder.name}</directory>
+                                    <directory>${target.hooks.directory}</directory>
                                     <includes>
                                         <include>*${maven-jar-plugin.Extension-Context}*.jar</include>
                                     </includes>
@@ -91,7 +93,7 @@
                                             <type>${project.packaging}</type>
                                         </artifactItem>
                                     </artifactItems>
-                                    <outputDirectory>${env.POLARION_HOME}/polarion/extensions/${interceptor-manager.artifactId}/eclipse/plugins/${hooks.folder.name}</outputDirectory>
+                                    <outputDirectory>${target.hooks.directory}</outputDirectory>
                                 </configuration>
                             </execution>
                         </executions>
