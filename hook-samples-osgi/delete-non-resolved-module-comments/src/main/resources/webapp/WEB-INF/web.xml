@@ -30,7 +30,7 @@
 
 	<servlet>
 		<servlet-name>osgi-hook-example</servlet-name>
-		<servlet-class>ch.sbb.polarion.extension.interceptor.hook_samples.osgi.OSGiHookServlet</servlet-class>
+		<servlet-class>ch.sbb.polarion.extension.interceptor.hook_samples.osgi.HookServlet</servlet-class>
 
 		<init-param>
 			<param-name>debug</param-name>

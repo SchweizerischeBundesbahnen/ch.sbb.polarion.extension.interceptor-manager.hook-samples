@@ -9,13 +9,13 @@ import com.polarion.platform.persistence.model.IPObject;
 import org.jetbrains.annotations.NotNull;
 
 @SuppressWarnings("unused")
-public class DeleteNonResolvedModuleCommentsOSGiHook extends ActionHook implements HookExecutor {
+public class DeleteNonResolvedModuleCommentsHook extends ActionHook implements HookExecutor {
 
     public static final String DESCRIPTION = "Allow the removal of only unresolved comments from the document. Loaded using OSGi services";
 
-    public static final Logger logger = Logger.getLogger(DeleteNonResolvedModuleCommentsOSGiHook.class);
+    public static final Logger logger = Logger.getLogger(DeleteNonResolvedModuleCommentsHook.class);
 
-    public DeleteNonResolvedModuleCommentsOSGiHook() {
+    public DeleteNonResolvedModuleCommentsHook() {
         super(ItemType.MODULE_COMMENT, ActionType.DELETE, DESCRIPTION);
     }
 
