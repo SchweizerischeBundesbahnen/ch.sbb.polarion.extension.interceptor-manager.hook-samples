@@ -9,16 +9,18 @@
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>ch.sbb.polarion.extension.interceptor-manager.hook-samples.delete-work-records</artifactId>
+    <artifactId>ch.sbb.polarion.extension.hook-samples.osgi.delete-non-resolved-module-comments</artifactId>
     <packaging>jar</packaging>
 
     <properties>
-        <maven-jar-plugin.Automatic-Module-Name>ch.sbb.polarion.extension.interceptor.hooks_samples.delete_work_records</maven-jar-plugin.Automatic-Module-Name>
-        <maven-jar-plugin.Extension-Context>delete-work-records</maven-jar-plugin.Extension-Context>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <polarion.version>2404</polarion.version>
+        <org.osgi.framework.version>1.10.0</org.osgi.framework.version>
+        <target.hooks.directory>${env.POLARION_HOME}/polarion/extensions/${project.artifactId}/eclipse/plugins</target.hooks.directory>
     </properties>
 
     <dependencies>
-        <!-- Polarion artifacts -->
         <dependency>
             <groupId>com.polarion.alm.projects</groupId>
             <artifactId>projects</artifactId>
@@ -43,6 +45,18 @@
             <version>${polarion.version}</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.polarion.thirdparty</groupId>
+            <artifactId>javax.servlet_4.0.0</artifactId>
+            <version>${polarion.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.framework</artifactId>
+            <version>${org.osgi.framework.version}</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -50,7 +64,13 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
+                <configuration combine.self="override">
+                    <archive>
+                        <manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
+                    </archive>
+                </configuration>
             </plugin>
         </plugins>
     </build>
+
 </project>

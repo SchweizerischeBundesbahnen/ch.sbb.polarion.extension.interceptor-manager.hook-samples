@@ -14,6 +14,8 @@ public class DeleteNonResolvedModuleCommentsHook extends ActionHook implements H
     public static final String DESCRIPTION = "Allow the removal of only unresolved comments from the document.";
 
     public static final Logger logger = Logger.getLogger(DeleteNonResolvedModuleCommentsHook.class);
+    public static final String COMMENT_MESSAGE = "CommentMessage";
+    public static final String RESOLVED_COMMENT_CONTENT = "'Resolved' comments can not be deleted.";
 
     public DeleteNonResolvedModuleCommentsHook() {
         super(ItemType.MODULE_COMMENT, ActionType.DELETE, DESCRIPTION);
@@ -24,7 +26,7 @@ public class DeleteNonResolvedModuleCommentsHook extends ActionHook implements H
         IModuleComment moduleComment = (IModuleComment) object;
 
         if (moduleComment.isResolvedComment()) {
-            return "'Resolved' comments can not be deleted.";
+            return RESOLVED_COMMENT_CONTENT;
         } else {
             return null;
         }
@@ -37,6 +39,6 @@ public class DeleteNonResolvedModuleCommentsHook extends ActionHook implements H
 
     @Override
     public String getDefaultSettings() {
-        return PropertiesUtils.build();
+        return PropertiesUtils.build(COMMENT_MESSAGE, RESOLVED_COMMENT_CONTENT);
     }
 }
