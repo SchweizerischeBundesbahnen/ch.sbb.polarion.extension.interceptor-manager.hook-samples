@@ -21,7 +21,7 @@ public class HookBundleActivator implements BundleActivator {
 
         actionHookRegistration = context.registerService(
                 IActionHook.class,
-                new DeleteNonResolvedModuleCommentsHook(),
+                new DeleteNonResolvedModuleCommentsHookOSGi(),
                 keys);
 
         logger.info("Sample action hook service have been registered.");

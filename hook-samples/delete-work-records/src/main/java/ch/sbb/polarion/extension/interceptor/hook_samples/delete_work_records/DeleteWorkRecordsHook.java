@@ -18,6 +18,7 @@ public class DeleteWorkRecordsHook extends ActionHook implements HookExecutor {
     public static final String DESCRIPTION = "Allow deletion of work records only from the current month.";
 
     public static final Logger logger = Logger.getLogger(DeleteWorkRecordsHook.class);
+    public static final String WORK_RECORDS_WARNING = "Only work records added in the current month can be deleted.";
 
     public DeleteWorkRecordsHook() {
         super(ItemType.WORK_RECORD, ActionType.DELETE, DESCRIPTION);
@@ -29,7 +30,7 @@ public class DeleteWorkRecordsHook extends ActionHook implements HookExecutor {
         DateOnly workRecordDate = workRecord.getDate();
 
         if (!isDateInCurrentMonth(workRecordDate.getDate())) {
-            return "Only work records added in the current month can be deleted.";
+            return WORK_RECORDS_WARNING;
         } else {
             return null;
         }
@@ -52,6 +53,6 @@ public class DeleteWorkRecordsHook extends ActionHook implements HookExecutor {
 
     @Override
     public String getDefaultSettings() {
-        return PropertiesUtils.build();
+        return PropertiesUtils.build(WORK_RECORDS_WARNING);
     }
 }
