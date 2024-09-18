@@ -15,9 +15,10 @@ public class DeleteNonResolvedModuleCommentsHookOSGi extends ActionHook implemen
     private static final String DESCRIPTION = "Allow the removal of only unresolved comments from the document. Loaded using OSGi services";
     private static final String COMMENT_MESSAGE = "CommentMessage";
     private static final String RESOLVED_CANNOT_BE_DELETED = "'Resolved' comments can not be deleted.";
+    private static final String VERSION = "1.0.0";
 
     public DeleteNonResolvedModuleCommentsHookOSGi() {
-        super(ItemType.MODULE_COMMENT, ActionType.DELETE, DESCRIPTION);
+        super(ItemType.MODULE_COMMENT, ActionType.DELETE, VERSION, DESCRIPTION);
     }
 
     @Override
