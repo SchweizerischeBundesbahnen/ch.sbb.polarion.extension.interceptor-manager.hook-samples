@@ -17,6 +17,7 @@
         <module>hook-samples/testrun</module>
         <module>hook-samples/title-length-check</module>
         <module>hook-samples-osgi/delete-non-resolved-module-comments</module>
+        <module>hook-samples-guice/delete-non-resolved-module-comments</module>
     </modules>
 
     <properties>
