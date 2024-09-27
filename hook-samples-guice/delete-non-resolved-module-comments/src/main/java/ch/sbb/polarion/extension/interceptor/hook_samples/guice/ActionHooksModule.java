@@ -1,4 +1,4 @@
-package ch.sbb.polarion.extension.interceptor.hook_samples.juice;
+package ch.sbb.polarion.extension.interceptor.hook_samples.guice;
 
 import ch.sbb.polarion.extension.interceptor_manager.model.IActionHook;
 import com.google.inject.AbstractModule;

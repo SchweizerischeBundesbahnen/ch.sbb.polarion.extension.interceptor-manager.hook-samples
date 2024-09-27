@@ -5,7 +5,7 @@ Bundle-SymbolicName: ch.sbb.polarion.extension.juice.hook.example;singleton:=tru
 Bundle-Vendor: SBB AG
 Bundle-Version: 1.0.0
 Bundle-Name: Juice Hook example
-Guice-Modules: ch.sbb.polarion.extension.interceptor.hook_samples.juice.ActionHooksModule
+Guice-Modules: ch.sbb.polarion.extension.interceptor.hook_samples.guice.ActionHooksModule
 Require-Bundle: com.polarion.alm.tracker,
  com.polarion.alm.ui,
  com.polarion.portal.tomcat,

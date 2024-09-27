@@ -1,4 +1,4 @@
-package ch.sbb.polarion.extension.interceptor.hook_samples.juice;
+package ch.sbb.polarion.extension.interceptor.hook_samples.guice;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
