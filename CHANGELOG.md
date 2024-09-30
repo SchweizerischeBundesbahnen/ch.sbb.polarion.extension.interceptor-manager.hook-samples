@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.1.0](https://github.com/SchweizerischeBundesbahnen/ch.sbb.polarion.extension.interceptor-manager.hook-samples/compare/v3.0.2...v3.1.0) (2024-09-30)
+
+
+### Features
+
+* Added Google Guice hook example ([#34](https://github.com/SchweizerischeBundesbahnen/ch.sbb.polarion.extension.interceptor-manager.hook-samples/issues/34)) ([4f85c17](https://github.com/SchweizerischeBundesbahnen/ch.sbb.polarion.extension.interceptor-manager.hook-samples/commit/4f85c17c475cb2f8e0a1b8485e59edc772ece267)), closes [#31](https://github.com/SchweizerischeBundesbahnen/ch.sbb.polarion.extension.interceptor-manager.hook-samples/issues/31)
+* Added OSGi hooks example ([#33](https://github.com/SchweizerischeBundesbahnen/ch.sbb.polarion.extension.interceptor-manager.hook-samples/issues/33)) ([2812fb4](https://github.com/SchweizerischeBundesbahnen/ch.sbb.polarion.extension.interceptor-manager.hook-samples/commit/2812fb4f38b04778d2cf9827384170c3a60c120a)), closes [#31](https://github.com/SchweizerischeBundesbahnen/ch.sbb.polarion.extension.interceptor-manager.hook-samples/issues/31)
+
 ## [3.0.2](https://github.com/SchweizerischeBundesbahnen/ch.sbb.polarion.extension.interceptor-manager.hook-samples/compare/v3.0.1...v3.0.2) (2024-09-16)
 
 
