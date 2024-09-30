@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: ch.sbb.polarion.extension.juice.hook.example
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: ch.sbb.polarion.extension.juice.hook.example;singleton:=true
+Bundle-Vendor: SBB AG
+Bundle-Version: 1.0.0
+Bundle-Name: Juice Hook example
+Guice-Modules: ch.sbb.polarion.extension.interceptor.hook_samples.guice.ActionHooksModule
+Require-Bundle: com.polarion.alm.tracker,
+ com.polarion.alm.ui,
+ com.polarion.portal.tomcat,
+ com.polarion.platform.guice,
+ ch.sbb.polarion.extension.interceptor-manager
+
