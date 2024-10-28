@@ -11,4 +11,3 @@ Require-Bundle: com.polarion.alm.tracker,
  com.polarion.portal.tomcat,
  com.polarion.platform.guice,
  ch.sbb.polarion.extension.interceptor-manager
-
