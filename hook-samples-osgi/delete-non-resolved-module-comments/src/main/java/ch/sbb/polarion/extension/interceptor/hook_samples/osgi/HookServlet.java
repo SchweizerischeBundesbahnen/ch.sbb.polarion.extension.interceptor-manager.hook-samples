@@ -22,4 +22,3 @@ public class HookServlet extends HttpServlet {
         }
     }
 }
-
