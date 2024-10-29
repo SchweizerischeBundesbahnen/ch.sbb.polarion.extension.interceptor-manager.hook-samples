@@ -52,6 +52,56 @@
         <target.hooks.directory>${env.POLARION_HOME}/polarion/extensions/${interceptor-manager.artifactId}/eclipse/plugins/${hooks.folder.name}</target.hooks.directory>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>ch.sbb.polarion.extensions</groupId>
+            <artifactId>${interceptor-manager.artifactId}</artifactId>
+            <version>${ch.sbb.polarion.extension.interceptor-manager.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Others -->
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>${jetbrains.api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>${maven-dependency-plugin.version}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>${maven-jar-plugin.version}</version>
+                    <configuration>
+                        <archive>
+                            <manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
+                            <manifestEntries>
+                                <Manifest-Version>${maven-jar-plugin.Manifest-Version}</Manifest-Version>
+                                <Bundle-ManifestVersion>${maven-jar-plugin.Bundle-ManifestVersion}</Bundle-ManifestVersion>
+                                <Automatic-Module-Name>${maven-jar-plugin.Automatic-Module-Name}</Automatic-Module-Name>
+                                <Hook-Version>${maven-jar-plugin.Hook-Version}</Hook-Version>
+                                <Bundle-Build-Timestamp>${maven-jar-plugin.Bundle-Build-Timestamp}</Bundle-Build-Timestamp>
+                                <Extension-Context>${maven-jar-plugin.Extension-Context}</Extension-Context>
+                            </manifestEntries>
+                        </archive>
+                    </configuration>
+                </plugin>
+
+            </plugins>
+        </pluginManagement>
+    </build>
+
     <profiles>
         <profile>
             <id>install-to-local-polarion</id>
@@ -103,55 +153,4 @@
             </build>
         </profile>
     </profiles>
-
-    <dependencies>
-        <dependency>
-            <groupId>ch.sbb.polarion.extensions</groupId>
-            <artifactId>${interceptor-manager.artifactId}</artifactId>
-            <version>${ch.sbb.polarion.extension.interceptor-manager.version}</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <!-- Others -->
-        <dependency>
-            <groupId>org.jetbrains</groupId>
-            <artifactId>annotations</artifactId>
-            <version>${jetbrains.api.version}</version>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <pluginManagement>
-            <plugins>
-
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-dependency-plugin</artifactId>
-                    <version>${maven-dependency-plugin.version}</version>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-jar-plugin</artifactId>
-                    <version>${maven-jar-plugin.version}</version>
-                    <configuration>
-                        <archive>
-                            <manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
-                            <manifestEntries>
-                                <Manifest-Version>${maven-jar-plugin.Manifest-Version}</Manifest-Version>
-                                <Bundle-ManifestVersion>${maven-jar-plugin.Bundle-ManifestVersion}</Bundle-ManifestVersion>
-                                <Automatic-Module-Name>${maven-jar-plugin.Automatic-Module-Name}</Automatic-Module-Name>
-                                <Hook-Version>${maven-jar-plugin.Hook-Version}</Hook-Version>
-                                <Bundle-Build-Timestamp>${maven-jar-plugin.Bundle-Build-Timestamp}</Bundle-Build-Timestamp>
-                                <Extension-Context>${maven-jar-plugin.Extension-Context}</Extension-Context>
-                            </manifestEntries>
-                        </archive>
-                    </configuration>
-                </plugin>
-
-            </plugins>
-        </pluginManagement>
-    </build>
-
 </project>
