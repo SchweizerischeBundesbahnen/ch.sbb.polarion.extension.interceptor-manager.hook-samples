@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.2](https://github.com/SchweizerischeBundesbahnen/ch.sbb.polarion.extension.interceptor-manager.hook-samples/compare/v3.1.1...v3.1.2) (2025-01-13)
+
+
+### Bug Fixes
+
+* Fix "Quick Start" section of readme ([#49](https://github.com/SchweizerischeBundesbahnen/ch.sbb.polarion.extension.interceptor-manager.hook-samples/issues/49)) ([9dcd2e6](https://github.com/SchweizerischeBundesbahnen/ch.sbb.polarion.extension.interceptor-manager.hook-samples/commit/9dcd2e6fcc8f79a1f5c980e30d04a0fcf8cfbfe2))
+
 ## [3.1.1](https://github.com/SchweizerischeBundesbahnen/ch.sbb.polarion.extension.interceptor-manager.hook-samples/compare/v3.1.0...v3.1.1) (2025-01-13)
 
 
