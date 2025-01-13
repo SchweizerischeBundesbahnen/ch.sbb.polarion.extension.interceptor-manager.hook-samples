@@ -27,7 +27,7 @@ The following hooks are available:
 The latest version of the hooks can be downloaded from the [releases page](../../releases/latest) and installed to Polarion instance without necessity to be compiled from the sources.
 Required hook(s) jar(s) should be copied to `<polarion_home>/polarion/extensions/ch.sbb.polarion.extension.interceptor-manager/eclipse/plugins/hooks` folder.
 
-As jars copied please go to Interceptor Manager -> Settings page on admin pane and click "Reload hooks list" link in top-right corner. Now installed sample hooks are ready to be used.
+As jars copied please go to `Interceptor Manager` -> `Settings` page on admin pane and click "Reload hooks list" link in top-right corner. Now installed sample hooks are ready to be used.
 
 ## Build
 
