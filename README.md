@@ -22,6 +22,13 @@ The following hooks are available:
 - [TestRun](hook-samples/testrun/README.md)
 - [Title Length Check](hook-samples/title-length-check/README.md)
 
+## Quick start
+
+The latest version of the hooks can be downloaded from the [releases page](../../releases/latest) and installed to Polarion instance without necessity to be compiled from the sources.
+Required hook(s) jar(s) should be copied to `<polarion_home>/polarion/extensions/ch.sbb.polarion.extension.interceptor-manager/eclipse/plugins/hooks` and changes will take effect after Polarion restart.
+> [!IMPORTANT]
+> Don't forget to clear `<polarion_home>/data/workspace/.config` folder after extension installation/update to make it work properly.
+
 ## Build
 
 These hooks can be produced using maven:
