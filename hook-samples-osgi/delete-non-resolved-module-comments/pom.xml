@@ -9,7 +9,7 @@
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>ch.sbb.polarion.extension.hook-samples.osgi.delete-non-resolved-module-comments</artifactId>
+    <artifactId>ch.sbb.polarion.extension.interceptor-manager.hook-samples-osgi.delete-non-resolved-module-comments</artifactId>
     <packaging>jar</packaging>
 
     <properties>
