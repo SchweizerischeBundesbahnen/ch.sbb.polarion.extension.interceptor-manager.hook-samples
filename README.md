@@ -21,6 +21,8 @@ The following hooks are available:
 - [Single Assignee](hook-samples/single-assignee/README.md)
 - [TestRun](hook-samples/testrun/README.md)
 - [Title Length Check](hook-samples/title-length-check/README.md)
+- [Delete Non-resolved Module Comments using Guice](hook-samples-guice/delete-non-resolved-module-comments/README.md)
+- [Delete Non-resolved Module Comments using OSGi](hook-samples-osgi/delete-non-resolved-module-comments/README.md)
 
 ## Quick start
 
