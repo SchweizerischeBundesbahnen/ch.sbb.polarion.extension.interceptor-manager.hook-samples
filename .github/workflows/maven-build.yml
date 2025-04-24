@@ -1,5 +1,5 @@
 ---
-name: maven-build
+name: Build & Release
 on:
   push:
     branches: ['**']
@@ -7,9 +7,16 @@ on:
     branches: [main]
     types: [opened, synchronize, reopened, ready_for_review]
   workflow_dispatch:
+# Set default permissions for all jobs
+permissions:
+  contents: read
+  packages: read
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: read
     env:
       S3_SBB_POLARION_MAVEN_REPO_RW_ACCESS_KEY: ${{ secrets.S3_SBB_POLARION_MAVEN_REPO_RW_ACCESS_KEY }}
       S3_SBB_POLARION_MAVEN_REPO_RW_SECRET_ACCESS_KEY: ${{ secrets.S3_SBB_POLARION_MAVEN_REPO_RW_SECRET_ACCESS_KEY }}
@@ -19,7 +26,8 @@ jobs:
       - name: 📄 Checkout the repository
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
         with:
-          fetch-depth: 0
+          fetch-depth: 1
+          persist-credentials: false
       - name: 🧱 Set up JDK and Maven
         uses: actions/setup-java@c5195efecf7bdfc987ee8bae7a71cb8b11521c00  # v4.7.1
         with:
@@ -28,10 +36,10 @@ jobs:
           gpg-private-key: ${{ secrets.COM_SONATYPE_CENTRAL_POLARION_OPENSOURCE_GPG_PRIVATE_KEY }}
       - name: 📝 Get the project version
         id: project_version
-        run: echo "project_version=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_OUTPUT
+        run: echo "project_version=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> "$GITHUB_OUTPUT"
       - name: 📝 Store cache key
         id: cache_key
-        run: echo "cache_key=${{ runner.os }}-mvn-${{ hashFiles('**/pom.xml') }}-${{ github.sha }}" >> $GITHUB_OUTPUT
+        run: echo "cache_key=${{ runner.os }}-mvn-${{ hashFiles('**/pom.xml') }}-${{ github.sha }}" >> "$GITHUB_OUTPUT"
       - name: 💾 Prepare cache using cache key
         id: prepare-cache
         uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684  # v4.2.3
@@ -115,7 +123,10 @@ jobs:
       - name: 📦 Deploy artifacts to GitHub Packages
         run: mvn --batch-mode -Dmaven.test.skip=true -Dmaven.javadoc.skip=true -Dmaven.source.skip=true deploy -P deploy-github-packages
       - name: 📦 Upload assets to GitHub Release
+        env:
+          RELEASE_VERSION: ${{ needs.build.outputs.project_version }}
+        if: ${{ !endsWith(env.RELEASE_VERSION, '-SNAPSHOT') }}
         run: |-
-          gh release upload v${{ needs.build.outputs.project_version }} hook-samples/**/target/*-${{ needs.build.outputs.project_version }}.jar
-          gh release upload v${{ needs.build.outputs.project_version }} hook-samples-guice/**/target/*-${{ needs.build.outputs.project_version }}.jar
-          gh release upload v${{ needs.build.outputs.project_version }} hook-samples-osgi/**/target/*-${{ needs.build.outputs.project_version }}.jar
+          gh release upload "v${RELEASE_VERSION}" "hook-samples/**/target/*-${RELEASE_VERSION}.jar" --clobber
+          gh release upload "v${RELEASE_VERSION}" "hook-samples-guice/**/target/*-${RELEASE_VERSION}.jar" --clobber
+          gh release upload "v${RELEASE_VERSION}" "hook-samples-osgi/**/target/*-${RELEASE_VERSION}.jar" --clobber
