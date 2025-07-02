@@ -15,7 +15,7 @@
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <polarion.version>2404</polarion.version>
+        <polarion.version>2506</polarion.version>
         <org.osgi.framework.version>1.10.0</org.osgi.framework.version>
         <target.hooks.directory>${env.POLARION_HOME}/polarion/extensions/${project.artifactId}/eclipse/plugins</target.hooks.directory>
     </properties>
