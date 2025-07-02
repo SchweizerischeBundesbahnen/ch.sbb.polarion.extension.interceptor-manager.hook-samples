@@ -72,7 +72,7 @@
 
         <!-- Sonar and JaCoCo -->
         <jacoco.version>0.8.13</jacoco.version>
-        <sonar.projectKey>SchweizerischeBundesbahnen_${project.artifactId}</sonar.projectKey>
+        <sonar.projectKey>SchweizerischeBundesbahnen_ch.sbb.polarion.extension.interceptor.hook-samples</sonar.projectKey>
         <sonar.organization>schweizerischebundesbahnen</sonar.organization>
         <sonar.projectName>${project.artifactId}</sonar.projectName>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
