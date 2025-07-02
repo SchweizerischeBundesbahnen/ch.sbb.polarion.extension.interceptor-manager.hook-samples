@@ -83,8 +83,8 @@ jobs:
         with:
           name: maven-artifacts
           path: |
-            */target/*.jar
-            */target/*.pom
+            **/target/*.jar
+            **/target/*.pom
           retention-days: 1
           if-no-files-found: error
   deploy-github-packages:
