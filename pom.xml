@@ -21,7 +21,7 @@
     </modules>
 
     <properties>
-        <ch.sbb.polarion.extension.interceptor-manager.version>3.3.0</ch.sbb.polarion.extension.interceptor-manager.version>
+        <ch.sbb.polarion.extension.interceptor-manager.version>4.0.0</ch.sbb.polarion.extension.interceptor-manager.version>
 
         <interceptor-manager.artifactId>ch.sbb.polarion.extension.interceptor-manager</interceptor-manager.artifactId>
         <hooks.folder.name>hooks</hooks.folder.name>
