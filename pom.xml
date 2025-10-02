@@ -67,7 +67,7 @@
         <!-- Maven plugins -->
         <maven-clean-plugin.version>3.5.0</maven-clean-plugin.version>
         <maven-jar-plugin.version>3.4.2</maven-jar-plugin.version>
-        <maven-dependency-plugin.version>3.8.1</maven-dependency-plugin.version>
+        <maven-dependency-plugin.version>3.9.0</maven-dependency-plugin.version>
         <sonar-maven-plugin.version>5.2.0.4988</sonar-maven-plugin.version>
 
         <!-- Sonar and JaCoCo -->
