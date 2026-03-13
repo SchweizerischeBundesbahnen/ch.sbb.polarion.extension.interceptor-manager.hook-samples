@@ -85,6 +85,7 @@
 
         <!-- Others -->
         <jetbrains.api.version>24.0.1</jetbrains.api.version>
+        <guava.version>33.4.0-jre</guava.version>
 
         <!-- Manifest entries -->
         <maven-jar-plugin.Manifest-Version>1.0</maven-jar-plugin.Manifest-Version>
@@ -154,7 +155,7 @@
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
-                <version>33.4.0-jre</version>
+                <version>${guava.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
