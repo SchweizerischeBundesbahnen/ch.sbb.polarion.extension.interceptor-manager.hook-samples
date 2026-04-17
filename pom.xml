@@ -85,7 +85,7 @@
 
         <!-- Others -->
         <jetbrains.api.version>24.0.1</jetbrains.api.version>
-        <guava.version>33.5.0-jre</guava.version>
+        <guava.version>33.6.0-jre</guava.version>
 
         <!-- Manifest entries -->
         <maven-jar-plugin.Manifest-Version>1.0</maven-jar-plugin.Manifest-Version>
