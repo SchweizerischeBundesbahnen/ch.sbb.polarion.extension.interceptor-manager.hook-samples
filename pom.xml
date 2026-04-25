@@ -4,7 +4,7 @@
 
     <groupId>ch.sbb.polarion.extensions</groupId>
     <artifactId>ch.sbb.polarion.extension.interceptor-manager.hook-samples</artifactId>
-    <version>4.0.1-SNAPSHOT</version>
+    <version>4.0.1</version>
     <packaging>pom</packaging>
 
     <name>Hooks samples for Interceptor Manager extension for Polarion ALM</name>
