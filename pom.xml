@@ -76,6 +76,7 @@
         <sonar.organization>schweizerischebundesbahnen</sonar.organization>
         <sonar.projectName>${project.artifactId}</sonar.projectName>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <sonar.exclusions>.github/**</sonar.exclusions>
         <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
         <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
         <sonar.language>java</sonar.language>
