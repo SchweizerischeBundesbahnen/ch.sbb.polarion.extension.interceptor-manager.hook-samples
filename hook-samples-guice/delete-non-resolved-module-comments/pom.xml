@@ -48,7 +48,7 @@
         </dependency>
         <dependency>
             <groupId>com.polarion.thirdparty</groupId>
-            <artifactId>javax.servlet_4.0.0</artifactId>
+            <artifactId>jakarta.servlet-api_6.1.0</artifactId>
             <version>${polarion.version}</version>
             <scope>provided</scope>
         </dependency>
