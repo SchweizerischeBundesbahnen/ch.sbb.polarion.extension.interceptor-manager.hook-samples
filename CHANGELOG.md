@@ -1,5 +1,25 @@
 # Changelog
 
+## [5.0.0](https://github.com/SchweizerischeBundesbahnen/ch.sbb.polarion.extension.interceptor-manager.hook-samples/compare/v4.0.0...v5.0.0) (2026-06-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* Polarion 2606 support ([#85](https://github.com/SchweizerischeBundesbahnen/ch.sbb.polarion.extension.interceptor-manager.hook-samples/issues/85))
+
+### Features
+
+* Polarion 2606 support ([#85](https://github.com/SchweizerischeBundesbahnen/ch.sbb.polarion.extension.interceptor-manager.hook-samples/issues/85)) ([e8e1a7e](https://github.com/SchweizerischeBundesbahnen/ch.sbb.polarion.extension.interceptor-manager.hook-samples/commit/e8e1a7e635c49ade1778cbb7070e276cad94bcd1))
+
+
+### Bug Fixes
+
+* add guava dependency in dependencyManagement and exclude jackson-core from interceptor-manager dependencies ([#79](https://github.com/SchweizerischeBundesbahnen/ch.sbb.polarion.extension.interceptor-manager.hook-samples/issues/79)) ([cb8bc4f](https://github.com/SchweizerischeBundesbahnen/ch.sbb.polarion.extension.interceptor-manager.hook-samples/commit/cb8bc4f81108ae3eaa719e27918def1a09832efb))
+* **deps:** update ch.sbb.polarion.extension.interceptor-manager.version to v6.0.2 ([#84](https://github.com/SchweizerischeBundesbahnen/ch.sbb.polarion.extension.interceptor-manager.hook-samples/issues/84)) ([23ca2d5](https://github.com/SchweizerischeBundesbahnen/ch.sbb.polarion.extension.interceptor-manager.hook-samples/commit/23ca2d550c3b0f6c560ef668cec597b18310b861))
+* **deps:** update dependency ch.sbb.polarion.extensions:ch.sbb.polarion.extension.interceptor-manager to v6.0.1 ([b1e85e5](https://github.com/SchweizerischeBundesbahnen/ch.sbb.polarion.extension.interceptor-manager.hook-samples/commit/b1e85e5edbfbb84616c23cdddd5694887ccd7994))
+* **deps:** update dependency com.google.guava:guava to v33.5.0-jre ([fb80dc7](https://github.com/SchweizerischeBundesbahnen/ch.sbb.polarion.extension.interceptor-manager.hook-samples/commit/fb80dc7c74ce0fee0e64c2b67fe30ffe91cb0715))
+* **deps:** update dependency com.google.guava:guava to v33.6.0-jre ([73f8209](https://github.com/SchweizerischeBundesbahnen/ch.sbb.polarion.extension.interceptor-manager.hook-samples/commit/73f82090d70555a59ac574f7f46156335cef66a0))
+
 ## [4.0.0](https://github.com/SchweizerischeBundesbahnen/ch.sbb.polarion.extension.interceptor-manager.hook-samples/compare/v3.1.5...v4.0.0) (2026-01-14)
 
 
