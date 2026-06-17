@@ -52,14 +52,14 @@
     </modules>
 
     <properties>
-        <ch.sbb.polarion.extension.interceptor-manager.version>6.0.2</ch.sbb.polarion.extension.interceptor-manager.version>
+        <ch.sbb.polarion.extension.interceptor-manager.version>7.0.0</ch.sbb.polarion.extension.interceptor-manager.version>
 
         <interceptor-manager.artifactId>ch.sbb.polarion.extension.interceptor-manager</interceptor-manager.artifactId>
         <hooks.folder.name>hooks</hooks.folder.name>
 
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
-        <polarion.version>2512</polarion.version>
+        <polarion.version>2606</polarion.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm</maven.build.timestamp.format>
