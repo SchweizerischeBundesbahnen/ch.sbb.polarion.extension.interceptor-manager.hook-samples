@@ -101,7 +101,7 @@
 
     <profiles>
         <profile>
-            <id>install-to-local-polarion</id>
+            <id>local-install-into-polarion</id>
             <build>
                 <plugins>
                     <plugin>
