@@ -2,6 +2,7 @@ package ch.sbb.polarion.extension.interceptor_manager.hook_samples.testrun;
 
 import ch.sbb.polarion.extension.interceptor_manager.model.ActionHook;
 import ch.sbb.polarion.extension.interceptor_manager.model.HookExecutor;
+import ch.sbb.polarion.extension.interceptor_manager.model.RequireSettingEntries;
 import ch.sbb.polarion.extension.interceptor_manager.util.PropertiesUtils;
 import com.polarion.alm.tracker.ITrackerService;
 import com.polarion.alm.tracker.model.ITestRecord;
@@ -21,7 +22,7 @@ import java.util.List;
  * - Does not allow mark test case as passed if any of step not passed
  */
 @SuppressWarnings("unused")
-public class TestRunHook extends ActionHook implements HookExecutor {
+public class TestRunHook extends ActionHook implements HookExecutor, RequireSettingEntries {
 
     private static final String SETTINGS_PROJECTS = "projects";
     private static final String SETTINGS_ERROR_MESSAGE = "errorMessage";
@@ -77,6 +78,17 @@ public class TestRunHook extends ActionHook implements HookExecutor {
     @Override
     public @NotNull HookExecutor getExecutor() {
         return this; //there is no need to create a separate executor instance coz only 'pre' action used
+    }
+
+    /**
+     * Every entry this hook reads. The interceptor manager reports the ones the stored settings miss and
+     * refuses to save settings without them, so an entry added by a new version can not go unnoticed.
+     */
+    @Override
+    public @NotNull List<String> getRequiredSettingEntryNames() {
+        return List.of(
+                SETTINGS_ERROR_MESSAGE,
+                SETTINGS_PROJECTS);
     }
 
     @Override

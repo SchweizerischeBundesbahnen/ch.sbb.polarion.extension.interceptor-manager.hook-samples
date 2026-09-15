@@ -2,14 +2,17 @@ package ch.sbb.polarion.extension.interceptor.hook_samples.delete_non_resolved_m
 
 import ch.sbb.polarion.extension.interceptor_manager.model.ActionHook;
 import ch.sbb.polarion.extension.interceptor_manager.model.HookExecutor;
+import ch.sbb.polarion.extension.interceptor_manager.model.RequireSettingEntries;
 import ch.sbb.polarion.extension.interceptor_manager.util.PropertiesUtils;
 import com.polarion.alm.tracker.model.IModuleComment;
 import com.polarion.core.util.logging.Logger;
 import com.polarion.platform.persistence.model.IPObject;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
+
 @SuppressWarnings("unused")
-public class DeleteNonResolvedModuleCommentsHook extends ActionHook implements HookExecutor {
+public class DeleteNonResolvedModuleCommentsHook extends ActionHook implements HookExecutor, RequireSettingEntries {
 
     public static final String DESCRIPTION = "Allow the removal of only unresolved comments from the document.";
 
@@ -26,7 +29,7 @@ public class DeleteNonResolvedModuleCommentsHook extends ActionHook implements H
         IModuleComment moduleComment = (IModuleComment) object;
 
         if (moduleComment.isResolvedComment()) {
-            return RESOLVED_COMMENT_CONTENT;
+            return getSettingsValue(COMMENT_MESSAGE);
         } else {
             return null;
         }
@@ -35,6 +38,15 @@ public class DeleteNonResolvedModuleCommentsHook extends ActionHook implements H
     @Override
     public @NotNull HookExecutor getExecutor() {
         return this; //there is no need to create a separate executor instance coz only 'pre' action used
+    }
+
+    /**
+     * Every entry this hook reads. The interceptor manager reports the ones the stored settings miss and
+     * refuses to save settings without them, so an entry added by a new version can not go unnoticed.
+     */
+    @Override
+    public @NotNull List<String> getRequiredSettingEntryNames() {
+        return List.of(COMMENT_MESSAGE);
     }
 
     @Override

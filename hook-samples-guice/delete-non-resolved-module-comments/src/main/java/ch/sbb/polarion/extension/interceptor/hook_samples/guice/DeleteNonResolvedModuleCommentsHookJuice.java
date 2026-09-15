@@ -2,14 +2,17 @@ package ch.sbb.polarion.extension.interceptor.hook_samples.guice;
 
 import ch.sbb.polarion.extension.interceptor_manager.model.ActionHook;
 import ch.sbb.polarion.extension.interceptor_manager.model.HookExecutor;
+import ch.sbb.polarion.extension.interceptor_manager.model.RequireSettingEntries;
 import ch.sbb.polarion.extension.interceptor_manager.util.PropertiesUtils;
 import com.polarion.alm.tracker.model.IModuleComment;
 import com.polarion.core.util.logging.Logger;
 import com.polarion.platform.persistence.model.IPObject;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
+
 @SuppressWarnings("unused")
-public class DeleteNonResolvedModuleCommentsHookJuice extends ActionHook implements HookExecutor {
+public class DeleteNonResolvedModuleCommentsHookJuice extends ActionHook implements HookExecutor, RequireSettingEntries {
     private static final Logger logger = Logger.getLogger(DeleteNonResolvedModuleCommentsHookJuice.class);
 
     private static final String JUICE_HOOK_DESCRIPTION = "Allow the removal of only unresolved comments from the document. Loaded using Google Guice";
@@ -23,7 +26,16 @@ public class DeleteNonResolvedModuleCommentsHookJuice extends ActionHook impleme
 
     @Override
     public String preAction(@NotNull IPObject object) {
-        return (((IModuleComment) object).isResolvedComment()) ? CANNOT_BE_DELETED_MESSAGE : null;
+        return (((IModuleComment) object).isResolvedComment()) ? getSettingsValue(MESSAGE_TITLE) : null;
+    }
+
+    /**
+     * Every entry this hook reads. The interceptor manager reports the ones the stored settings miss and
+     * refuses to save settings without them, so an entry added by a new version can not go unnoticed.
+     */
+    @Override
+    public @NotNull List<String> getRequiredSettingEntryNames() {
+        return List.of(MESSAGE_TITLE);
     }
 
     @Override

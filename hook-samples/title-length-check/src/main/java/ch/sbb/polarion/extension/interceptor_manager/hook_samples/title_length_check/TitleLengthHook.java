@@ -2,6 +2,7 @@ package ch.sbb.polarion.extension.interceptor_manager.hook_samples.title_length_
 
 import ch.sbb.polarion.extension.interceptor_manager.model.ActionHook;
 import ch.sbb.polarion.extension.interceptor_manager.model.HookExecutor;
+import ch.sbb.polarion.extension.interceptor_manager.model.RequireSettingEntries;
 import ch.sbb.polarion.extension.interceptor_manager.util.PropertiesUtils;
 import com.polarion.alm.tracker.model.IModule;
 import com.polarion.alm.tracker.model.IWorkItem;
@@ -13,7 +14,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 @SuppressWarnings("unused")
-public class TitleLengthHook extends ActionHook implements HookExecutor {
+public class TitleLengthHook extends ActionHook implements HookExecutor, RequireSettingEntries {
 
     private static final String SETTINGS_ERROR_MESSAGE = "errorMessage";
     private static final String SETTINGS_MAX_LENGTH = "titleMaxLength";
@@ -62,6 +63,17 @@ public class TitleLengthHook extends ActionHook implements HookExecutor {
     @Override
     public @NotNull HookExecutor getExecutor() {
         return this; //there is no need to create a separate executor instance coz only 'pre' action used
+    }
+
+    /**
+     * Every entry this hook reads. The interceptor manager reports the ones the stored settings miss and
+     * refuses to save settings without them, so an entry added by a new version can not go unnoticed.
+     */
+    @Override
+    public @NotNull List<String> getRequiredSettingEntryNames() {
+        return List.of(
+                SETTINGS_ERROR_MESSAGE,
+                SETTINGS_MAX_LENGTH);
     }
 
     @Override

@@ -2,13 +2,16 @@ package ch.sbb.polarion.extension.interceptor_manager.hook_samples.module_save_t
 
 import ch.sbb.polarion.extension.interceptor_manager.model.ActionHook;
 import ch.sbb.polarion.extension.interceptor_manager.model.HookExecutor;
+import ch.sbb.polarion.extension.interceptor_manager.model.RequireSettingEntries;
 import ch.sbb.polarion.extension.interceptor_manager.util.PropertiesUtils;
 import com.polarion.core.util.logging.Logger;
 import com.polarion.platform.persistence.model.IPObject;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
+
 @SuppressWarnings("unused")
-public class ModuleSaveTimeHook extends ActionHook implements HookExecutor {
+public class ModuleSaveTimeHook extends ActionHook implements HookExecutor, RequireSettingEntries {
 
     public static final String SETTINGS_LOG_MESSAGE = "logMessage";
     public static final String SETTINGS_TIME = "time";
@@ -26,6 +29,16 @@ public class ModuleSaveTimeHook extends ActionHook implements HookExecutor {
     @Override
     public @NotNull HookExecutor getExecutor() {
         return new SaveTimeLoggerExecutor();
+    }
+
+    /**
+     * Every entry this hook reads. The interceptor manager reports the ones the stored settings miss and
+     * refuses to save settings without them, so an entry added by a new version can not go unnoticed.
+     */
+    @Override
+    public @NotNull List<String> getRequiredSettingEntryNames() {
+        return List.of(
+                SETTINGS_LOG_MESSAGE);
     }
 
     @Override
