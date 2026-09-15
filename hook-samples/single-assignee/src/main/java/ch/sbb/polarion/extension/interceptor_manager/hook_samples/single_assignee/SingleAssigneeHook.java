@@ -2,17 +2,20 @@ package ch.sbb.polarion.extension.interceptor_manager.hook_samples.single_assign
 
 import ch.sbb.polarion.extension.interceptor_manager.model.ActionHook;
 import ch.sbb.polarion.extension.interceptor_manager.model.HookExecutor;
+import ch.sbb.polarion.extension.interceptor_manager.model.RequireSettingEntries;
 import ch.sbb.polarion.extension.interceptor_manager.util.PropertiesUtils;
 import com.polarion.alm.tracker.model.IWorkItem;
 import com.polarion.core.util.logging.Logger;
 import com.polarion.platform.persistence.model.IPObject;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
+
 /**
  * Save hook for control that user can add only single assignee to WorkItem.
  */
 @SuppressWarnings("unused")
-public class SingleAssigneeHook extends ActionHook implements HookExecutor {
+public class SingleAssigneeHook extends ActionHook implements HookExecutor, RequireSettingEntries {
 
     private static final String SETTINGS_PROJECTS_DESCRIPTION = "Comma-separated list of projects. Use * to process all.";
     private static final String SETTINGS_PROJECTS = "projects";
@@ -51,6 +54,18 @@ public class SingleAssigneeHook extends ActionHook implements HookExecutor {
     @Override
     public @NotNull HookExecutor getExecutor() {
         return this; //there is no need to create a separate executor instance coz only 'pre' action used
+    }
+
+    /**
+     * Every entry this hook reads. The interceptor manager reports the ones the stored settings miss and
+     * refuses to save settings without them, so an entry added by a new version can not go unnoticed.
+     */
+    @Override
+    public @NotNull List<String> getRequiredSettingEntryNames() {
+        return List.of(
+                SETTINGS_PROJECTS,
+                SETTINGS_TYPES + DOT + ALL_WILDCARD,
+                SETTINGS_ERROR_MESSAGE);
     }
 
     @Override

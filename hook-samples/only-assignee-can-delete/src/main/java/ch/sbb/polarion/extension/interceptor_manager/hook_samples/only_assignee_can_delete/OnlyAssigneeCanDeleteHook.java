@@ -2,6 +2,7 @@ package ch.sbb.polarion.extension.interceptor_manager.hook_samples.only_assignee
 
 import ch.sbb.polarion.extension.interceptor_manager.model.ActionHook;
 import ch.sbb.polarion.extension.interceptor_manager.model.HookExecutor;
+import ch.sbb.polarion.extension.interceptor_manager.model.RequireSettingEntries;
 import ch.sbb.polarion.extension.interceptor_manager.util.PropertiesUtils;
 import com.polarion.alm.projects.model.IUser;
 import com.polarion.alm.tracker.ITrackerService;
@@ -12,10 +13,12 @@ import com.polarion.platform.persistence.model.IPObject;
 import com.polarion.platform.persistence.model.IPObjectList;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
+
 import java.util.Iterator;
 
 @SuppressWarnings({"unused", "unchecked", "rawtypes"})
-public class OnlyAssigneeCanDeleteHook extends ActionHook implements HookExecutor {
+public class OnlyAssigneeCanDeleteHook extends ActionHook implements HookExecutor, RequireSettingEntries {
 
     private static final String SETTINGS_PROJECTS = "projects";
     private static final String SETTINGS_ERROR_MESSAGE = "errorMessage";
@@ -68,6 +71,18 @@ public class OnlyAssigneeCanDeleteHook extends ActionHook implements HookExecuto
     @Override
     public @NotNull HookExecutor getExecutor() {
         return this; //there is no need to create a separate executor instance coz only 'pre' action used
+    }
+
+    /**
+     * Every entry this hook reads. The interceptor manager reports the ones the stored settings miss and
+     * refuses to save settings without them, so an entry added by a new version can not go unnoticed.
+     */
+    @Override
+    public @NotNull List<String> getRequiredSettingEntryNames() {
+        return List.of(
+                SETTINGS_PROJECTS,
+                SETTINGS_ERROR_MESSAGE,
+                SETTINGS_DELETE_UNASSIGNED);
     }
 
     @Override
