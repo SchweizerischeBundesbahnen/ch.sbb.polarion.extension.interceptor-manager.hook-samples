@@ -87,7 +87,7 @@
         <!-- Test dependencies -->
         <junit.version>6.1.3</junit.version>
         <mockito.version>5.24.0</mockito.version>
-        <jackson.version>2.22.2</jackson.version>
+        <jackson.version>2.22.3</jackson.version>
 
         <!-- Others -->
         <jetbrains.api.version>24.0.1</jetbrains.api.version>
