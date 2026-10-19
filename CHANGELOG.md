@@ -1,5 +1,14 @@
 # Changelog
 
+## [5.1.1](https://github.com/SchweizerischeBundesbahnen/ch.sbb.polarion.extension.interceptor-manager.hook-samples/compare/v5.1.0...v5.1.1) (2026-10-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency com.fasterxml.jackson.core:jackson-core to v2.22.3 [security] ([#124](https://github.com/SchweizerischeBundesbahnen/ch.sbb.polarion.extension.interceptor-manager.hook-samples/issues/124)) ([323727a](https://github.com/SchweizerischeBundesbahnen/ch.sbb.polarion.extension.interceptor-manager.hook-samples/commit/323727ad48f905d1e88b14e017d22bbc8847ff39))
+* **deps:** update dependency com.google.guava:guava to v33.7.2-jre ([#125](https://github.com/SchweizerischeBundesbahnen/ch.sbb.polarion.extension.interceptor-manager.hook-samples/issues/125)) ([d8ea01d](https://github.com/SchweizerischeBundesbahnen/ch.sbb.polarion.extension.interceptor-manager.hook-samples/commit/d8ea01ddc3871be1c0bbed4d97926e088f14974e))
+* **deps:** update mockito monorepo to v5.24.0 ([#128](https://github.com/SchweizerischeBundesbahnen/ch.sbb.polarion.extension.interceptor-manager.hook-samples/issues/128)) ([549c553](https://github.com/SchweizerischeBundesbahnen/ch.sbb.polarion.extension.interceptor-manager.hook-samples/commit/549c553a897218ca96273d17da4b7241e5ba05a0))
+
 ## [5.1.0](https://github.com/SchweizerischeBundesbahnen/ch.sbb.polarion.extension.interceptor-manager.hook-samples/compare/v5.0.0...v5.1.0) (2026-09-15)
 
 
