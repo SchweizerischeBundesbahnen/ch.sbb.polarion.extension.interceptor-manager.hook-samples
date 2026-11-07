@@ -71,7 +71,7 @@
         <sonar-maven-plugin.version>5.8.0.7211</sonar-maven-plugin.version>
 
         <!-- Sonar and JaCoCo -->
-        <jacoco.version>0.8.15</jacoco.version>
+        <jacoco.version>0.8.16</jacoco.version>
         <sonar.projectKey>SchweizerischeBundesbahnen_${project.artifactId}</sonar.projectKey>
         <sonar.organization>schweizerischebundesbahnen</sonar.organization>
         <sonar.projectName>${project.artifactId}</sonar.projectName>
