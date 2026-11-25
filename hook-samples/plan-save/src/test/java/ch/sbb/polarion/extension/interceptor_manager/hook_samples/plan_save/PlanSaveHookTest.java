@@ -3,6 +3,7 @@ package ch.sbb.polarion.extension.interceptor_manager.hook_samples.plan_save;
 import ch.sbb.polarion.extension.interceptor_manager.settings.HookModel;
 import ch.sbb.polarion.extension.interceptor_manager.util.HookManifestUtils;
 import ch.sbb.polarion.extension.interceptor_manager.util.SettingEntriesValidator;
+import com.polarion.alm.tracker.model.IPlan;
 import com.polarion.core.util.logging.Logger;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,8 +15,14 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyBoolean;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class PlanSaveHookTest {
@@ -37,5 +44,19 @@ class PlanSaveHookTest {
         PlanSaveHook hook = new PlanSaveHook();
 
         assertEquals(List.of(), SettingEntriesValidator.validateForSave(hook, new HookModel(true, "1.0.0", hook.getDefaultSettings())));
+    }
+
+    @Test
+    void planWithoutTemplateIsSkippedWithoutFailing() {
+        // Used to throw a NullPointerException while logging the unsupported plan type.
+        PlanSaveHook hook = spy(new PlanSaveHook());
+        doReturn(new HookModel(true, "1.0.0", hook.getDefaultSettings())).when(hook).loadSettings(anyBoolean());
+
+        IPlan plan = mock(IPlan.class);
+        when(plan.isTemplate()).thenReturn(false);
+        when(plan.getProjectId()).thenReturn("someProject");
+        when(plan.getTemplate()).thenReturn(null);
+
+        assertDoesNotThrow(() -> hook.postAction(plan));
     }
 }

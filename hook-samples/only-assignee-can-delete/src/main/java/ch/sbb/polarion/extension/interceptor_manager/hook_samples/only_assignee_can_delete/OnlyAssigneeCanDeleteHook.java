@@ -38,12 +38,15 @@ public class OnlyAssigneeCanDeleteHook extends ActionHook implements HookExecuto
 
     @Override
     public String preAction(@NotNull IPObject object) {
+        // Boolean.parseBoolean never throws: it turns anything but "true" into false, so validate first and keep
+        // the default for an absent or invalid value
         boolean deleteUnassigned = DEFAULT_DELETE_UNASSIGNED;
         String deleteUnassignedStringValue = getSettingsValue(SETTINGS_DELETE_UNASSIGNED);
-        try {
+        if ("true".equalsIgnoreCase(deleteUnassignedStringValue) || "false".equalsIgnoreCase(deleteUnassignedStringValue)) {
             deleteUnassigned = Boolean.parseBoolean(deleteUnassignedStringValue);
-        } catch (NumberFormatException e) {
-            logger.error("Cannot parse boolean value '%s'".formatted(deleteUnassignedStringValue), e);
+        } else if (!deleteUnassignedStringValue.isEmpty()) {
+            logger.error("Invalid boolean value '%s' for setting '%s', using the default '%s'"
+                    .formatted(deleteUnassignedStringValue, SETTINGS_DELETE_UNASSIGNED, DEFAULT_DELETE_UNASSIGNED));
         }
 
         IWorkItem workItem = (IWorkItem) object;
