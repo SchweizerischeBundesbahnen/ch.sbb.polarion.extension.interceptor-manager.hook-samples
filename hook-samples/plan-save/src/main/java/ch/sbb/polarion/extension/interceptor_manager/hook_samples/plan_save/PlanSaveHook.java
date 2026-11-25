@@ -51,11 +51,20 @@ public class PlanSaveHook extends ActionHook implements HookExecutor, RequireSet
                     parentPlan.save();
                 }
             } else {
-                logger.debug("Unsupported plan type: " + plan.getTemplate().getId() + " Supporting: " + getSettingsValue(SETTINGS_TEMPLATES));
+                // reached also for a plan without a template, or with a parent that is missing or unsupported
+                logger.debug("Unsupported plan type: " + templateId(plan) + ", parent plan type: " + templateId(plan.getParent())
+                        + " Supporting: " + getSettingsValue(SETTINGS_TEMPLATES));
             }
         } else {
             logger.debug("Unsupported project: " + plan.getProjectId() + " Supporting: " + getSettingsValue(SETTINGS_PROJECTS));
         }
+    }
+
+    private static String templateId(IPlan plan) {
+        if (plan == null) {
+            return "<no plan>";
+        }
+        return plan.getTemplate() != null ? plan.getTemplate().getId() : "<no template>";
     }
 
     @Override

@@ -58,7 +58,7 @@ public class TestRunHook extends ActionHook implements HookExecutor, RequireSett
                             int i = 0;
                             for (Iterator<ITestStepResult> iterator = testStepResults.iterator(); iterator.hasNext() && returnMessage == null; i++) {
                                 ITestStepResult stepResult = iterator.next();
-                                if (stepResult.getResult() != result) {
+                                if (!sameResult(result, stepResult.getResult())) {
                                     returnMessage = getSettingsValue(SETTINGS_ERROR_MESSAGE).replace(TEST_CASE_ID_VARIABLE, newRecord.getTestCase().getId()).replace(STEP_NUMBER_VARIABLE, String.valueOf(i + 1));
                                 }
                             }
@@ -73,6 +73,14 @@ public class TestRunHook extends ActionHook implements HookExecutor, RequireSett
             returnMessage = "Cannot update TestRun due to Exception: " + (e.getMessage() != null ? e.getMessage() : e.getClass());
         }
         return returnMessage;
+    }
+
+    /**
+     * Compares by ID, not by reference: the same option may come as separate instances. A step without a result
+     * (skipped) never matches. Package-private for the tests.
+     */
+    static boolean sameResult(@NotNull IEnumOption expected, IEnumOption actual) {
+        return actual != null && expected.getId().equals(actual.getId());
     }
 
     @Override
