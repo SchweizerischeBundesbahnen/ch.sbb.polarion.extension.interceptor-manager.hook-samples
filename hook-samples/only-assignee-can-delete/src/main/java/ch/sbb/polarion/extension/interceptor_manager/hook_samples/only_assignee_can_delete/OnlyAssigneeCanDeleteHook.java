@@ -38,16 +38,7 @@ public class OnlyAssigneeCanDeleteHook extends ActionHook implements HookExecuto
 
     @Override
     public String preAction(@NotNull IPObject object) {
-        // Boolean.parseBoolean never throws: it turns anything but "true" into false, so validate first and keep
-        // the default for an absent or invalid value
-        boolean deleteUnassigned = DEFAULT_DELETE_UNASSIGNED;
-        String deleteUnassignedStringValue = getSettingsValue(SETTINGS_DELETE_UNASSIGNED);
-        if ("true".equalsIgnoreCase(deleteUnassignedStringValue) || "false".equalsIgnoreCase(deleteUnassignedStringValue)) {
-            deleteUnassigned = Boolean.parseBoolean(deleteUnassignedStringValue);
-        } else if (!deleteUnassignedStringValue.isEmpty()) {
-            logger.error("Invalid boolean value '%s' for setting '%s', using the default '%s'"
-                    .formatted(deleteUnassignedStringValue, SETTINGS_DELETE_UNASSIGNED, DEFAULT_DELETE_UNASSIGNED));
-        }
+        boolean deleteUnassigned = isDeleteUnassignedAllowed();
 
         IWorkItem workItem = (IWorkItem) object;
         String returnMessage = null;
@@ -69,6 +60,22 @@ public class OnlyAssigneeCanDeleteHook extends ActionHook implements HookExecuto
         }
 
         return returnMessage;
+    }
+
+    /**
+     * Boolean.parseBoolean never throws: it turns anything but "true" into false, so validate first and keep
+     * the default for an absent or invalid value. Package-private for the tests.
+     */
+    boolean isDeleteUnassignedAllowed() {
+        String deleteUnassignedStringValue = getSettingsValue(SETTINGS_DELETE_UNASSIGNED);
+        if ("true".equalsIgnoreCase(deleteUnassignedStringValue) || "false".equalsIgnoreCase(deleteUnassignedStringValue)) {
+            return Boolean.parseBoolean(deleteUnassignedStringValue);
+        }
+        if (!deleteUnassignedStringValue.isEmpty()) {
+            logger.error("Invalid boolean value '%s' for setting '%s', using the default '%s'"
+                    .formatted(deleteUnassignedStringValue, SETTINGS_DELETE_UNASSIGNED, DEFAULT_DELETE_UNASSIGNED));
+        }
+        return DEFAULT_DELETE_UNASSIGNED;
     }
 
     @Override
