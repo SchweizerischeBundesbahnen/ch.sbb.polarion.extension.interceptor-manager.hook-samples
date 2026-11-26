@@ -16,7 +16,12 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyBoolean;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.spy;
 
 @ExtendWith(MockitoExtension.class)
 class OnlyAssigneeCanDeleteHookTest {
@@ -41,5 +46,25 @@ class OnlyAssigneeCanDeleteHookTest {
         OnlyAssigneeCanDeleteHook hook = new OnlyAssigneeCanDeleteHook();
 
         assertEquals(List.of(), SettingEntriesValidator.validateForSave(hook, new HookModel(true, "1.0.0", hook.getDefaultSettings())));
+    }
+
+    @Test
+    void deleteUnassignedIsReadFromTheSettings() {
+        assertTrue(hookWithDeleteUnassigned("deleteUnassigned=true").isDeleteUnassignedAllowed());
+        assertFalse(hookWithDeleteUnassigned("deleteUnassigned=FALSE").isDeleteUnassignedAllowed());
+    }
+
+    @Test
+    void invalidOrAbsentDeleteUnassignedKeepsTheDefault() {
+        // Boolean.parseBoolean would have turned an invalid value into false.
+        assertTrue(hookWithDeleteUnassigned("deleteUnassigned=maybe").isDeleteUnassignedAllowed());
+        assertTrue(hookWithDeleteUnassigned("").isDeleteUnassignedAllowed());
+    }
+
+    private static OnlyAssigneeCanDeleteHook hookWithDeleteUnassigned(String deleteUnassignedEntry) {
+        OnlyAssigneeCanDeleteHook hook = spy(new OnlyAssigneeCanDeleteHook());
+        String properties = String.join("\n", "projects=*", deleteUnassignedEntry);
+        doReturn(new HookModel(true, "1.0.0", properties)).when(hook).loadSettings(anyBoolean());
+        return hook;
     }
 }

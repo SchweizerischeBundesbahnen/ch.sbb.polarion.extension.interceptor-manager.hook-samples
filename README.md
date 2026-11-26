@@ -31,6 +31,7 @@ Required hook(s) jar(s) should be copied to `<polarion_home>/polarion/extensions
 
 As jars copied please go to `Interceptor Manager` -> `Settings` page on admin pane and click "Reload hooks list" link in top-right corner. Now installed sample hooks are ready to be used.
 
+
 ## Build
 
 These hooks can be produced using maven:
